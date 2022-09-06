@@ -24,7 +24,7 @@ class BMSSensorTest(unittest.TestCase):
   def test_simulated_sensor_readings(self):
     for test in test_data.validate_readings:
       self.assertEqual(len(self.bms_sensors.read_data(test.get(test_data.SENSOR_TYPE))), test.get(test_data.TOTAL_EXPECTED_READINGS))
-      self.assertEqual(all(x in test.get(test_data.RANGE) for x in self.bms_sensors.read_data(test.get(test_data.SENSOR_TYPE))), True)
+      self.assertEqual(all(x in [i for i in test.get(test_data.RANGE)] for x in self.bms_sensors.read_data(test.get(test_data.SENSOR_TYPE))), True)
 
 if __name__ == '__main__':
   sys.exit(unittest.main()) # pragma: no cover

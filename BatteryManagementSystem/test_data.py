@@ -30,11 +30,11 @@ validate_readings = [
     {
         SENSOR_TYPE : TEMPERATURE,
         TOTAL_EXPECTED_READINGS : TOTAL_READINGS_TO_READ,
-        RANGE : range(-100, 100)
+        RANGE : range(-100, 101) # excludes upper limit
     },
     {
         SENSOR_TYPE : SOC,
         TOTAL_EXPECTED_READINGS : TOTAL_READINGS_TO_READ,
-        RANGE : range(0, 100)
+        RANGE : range(0, 101) # excludes upper limit
     }
 ]

@@ -18,6 +18,3 @@ class BMSSensors:
     def read_data(self, sensor_type, number_of_readings):
         sensor_min_value, sensor_max_value = self.get_ranges_by_type(sensor_type)
         return [random.randint(sensor_min_value, sensor_max_value) for x in range(number_of_readings)]
-
-
-BMSSensors().get_ranges_by_type("ROC")

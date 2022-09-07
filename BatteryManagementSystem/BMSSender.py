@@ -43,6 +43,5 @@ if __name__ == '__main__':
     bms_sender = BMSSender()
     bms_sender.configure_sensors([TEMPERATURE, SOC])
     bms_sender.send_data()
-    print(bms_sender.standard_output)
 
 

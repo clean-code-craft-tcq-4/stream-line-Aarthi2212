@@ -79,7 +79,7 @@ Setup the quality parameters of your project (duplication, complexity, coverage,
 
 ## Considerations
 
-By Default 50 Readings will be sent, if the total number of readings is not configured.
+By Default 50 Readings will be sent, if the total number of readings is not configured or given negative or not a whole number or zero
 
 Temperature and SOC are taken. The range for temperature sensor considered is -100 to 100. The range for SOC considered is 0 to 100.
 
@@ -97,7 +97,7 @@ TEMPERATURE , SOC
         -56 , 53
          54 , 4
         100 , 40
-        
+
 sender-executable can be accessed by python BatteryManagementSystem/BMSSender.py 
 
 python BatteryManagementSystem/BMSSender.py | receiver-executsble

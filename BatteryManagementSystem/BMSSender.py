@@ -6,7 +6,7 @@ class BMSSender:
         self.bms_sensors = BMSSensors()
         self.standard_output = []
         self.number_of_readings = number_of_readings
-        if number_of_readings is None:
+        if number_of_readings is None or (not isinstance(number_of_readings, int)) or number_of_readings <= 0:
             self.number_of_readings = 50       
 
     def configure_sensors(self, sensors):
@@ -40,8 +40,6 @@ class BMSSender:
 
 
 if __name__ == '__main__':
-    bms_sender = BMSSender()
-    bms_sender.configure_sensors([TEMPERATURE, SOC])
-    bms_sender.send_data()
-
-
+    bms_sender = BMSSender() # pragma: no cover
+    bms_sender.configure_sensors([TEMPERATURE, SOC]) # pragma: no cover
+    bms_sender.send_data() # pragma: no cover

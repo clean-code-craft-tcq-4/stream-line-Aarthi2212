@@ -39,6 +39,12 @@ class BMSSenderTest(unittest.TestCase):
     self.bms_sender.configure_sensors([TEMPERATURE, SOC])
     self.bms_sender.send_data()
 
+  def test_configuring_number_of_readings(self):
+    for test in test_data.readings_configuration:
+      sender = BMSSender(test.get(test_data.TOTAL_READINGS_TO_READ))
+      self.assertEqual(sender.number_of_readings, test.get(test_data.TOTAL_EXPECTED_READINGS))
+
+
   def test_configuring_sensors_to_bms(self):
     for test in test_data.sensor_configuration:
       self.bms_sender.configure_sensors(test.get(test_data.SENSORS_INPUT))
@@ -72,8 +78,9 @@ class BMSSenderTest(unittest.TestCase):
   def test_send_data(self):
     for test in test_data.validate_send_data:
         with patch(STD_OUT, new = StringIO()) as fake_out:
-            self.bms_sender.number_of_readings = test.get(test_data.TOTAL_READINGS_TO_READ)
-            self.bms_sender.send_data()
+            bms_sender = BMSSender(test.get(test_data.TOTAL_READINGS_TO_READ))
+            bms_sender.configure_sensors([TEMPERATURE, SOC])
+            bms_sender.send_data()
             self.assertEqual(len(fake_out.getvalue().strip().split("\n")), test.get(test_data.TOTAL_EXPECTED_READINGS) + 1)
 
 if __name__ == '__main__':

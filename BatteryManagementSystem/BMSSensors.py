@@ -1,5 +1,5 @@
 import random
-from Constants import SENSOR_RANGES, MAX, MIN, TOTAL_READINGS_TO_READ, INVALID_SENSOR
+from Constants import SENSOR_RANGES, MAX, MIN, INVALID_SENSOR
 
 class BMSSensors:
 
@@ -15,9 +15,9 @@ class BMSSensors:
             print(INVALID_SENSOR)
         return sensor_min_value, sensor_max_value
     
-    def read_data(self, sensor_type):
+    def read_data(self, sensor_type, number_of_readings):
         sensor_min_value, sensor_max_value = self.get_ranges_by_type(sensor_type)
-        return [random.randint(sensor_min_value, sensor_max_value) for x in range(TOTAL_READINGS_TO_READ)]
+        return [random.randint(sensor_min_value, sensor_max_value) for x in range(number_of_readings)]
 
 
 BMSSensors().get_ranges_by_type("ROC")

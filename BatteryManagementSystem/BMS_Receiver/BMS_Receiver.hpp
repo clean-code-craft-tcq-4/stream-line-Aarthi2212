@@ -31,4 +31,5 @@ public:
     BMS_ReadData();
     ~BMS_ReadData();
     void BMS_ReadSensorData(void);
+    BMS_SensorStatistics BMS_getSensorStatistics(BMS_Sensors sensor);
 };

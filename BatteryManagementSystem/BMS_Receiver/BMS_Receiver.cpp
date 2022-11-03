@@ -30,7 +30,7 @@ void BMS_ReadData::BMS_ReadSensorData(void)
             {
                 cout << "Temp: " << temperature << " Soc: " << soc << endl;
                 SensorValues[SENSOR_TEMPERATURE].push_back(temperature);
-                SensorValues[SENSOR_SOC].push_back(temperature);
+                SensorValues[SENSOR_SOC].push_back(soc);
             }
             calculateSensorStatistics();
         }
@@ -56,4 +56,9 @@ void BMS_ReadData::calculateSensorStatistics()
             }
         }
     }
+}
+
+BMS_SensorStatistics BMS_ReadData::BMS_getSensorStatistics(BMS_Sensors sensor)
+{
+    return sensorStatistics[sensor];
 }

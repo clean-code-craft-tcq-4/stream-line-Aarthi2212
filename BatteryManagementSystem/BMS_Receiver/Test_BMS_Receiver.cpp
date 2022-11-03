@@ -8,32 +8,6 @@ using namespace std;
 
 ofstream myfile;
 
-TEST_CASE("TestTemperatureSensorValues")
-{
-  myfile.open ("testFile.txt");
-  myfile <<"   49 , 98     "<<endl;
-  myfile <<"   81 , 38     "<<endl;
-  myfile <<"  -94 , 24     "<<endl;
-  myfile <<"  -59 , 35     "<<endl;
-  myfile <<"  -65 , 77     "<<endl;
-  myfile <<"  -77 , 1      "<<endl;
-  myfile <<"  -53 , 13     "<<endl;
-  myfile <<"   23 , 24  "<<endl;
-  myfile.close();
-  BMS_ReadData readSensor; 
-  readSensor.BMS_ReadSensorData();
-
-  BMS_SensorStatistics statistics = readSensor.BMS_getSensorStatistics(SENSOR_TEMPERATURE);
-  REQUIRE(statistics.min==-94);
-  REQUIRE(statistics.max==81);
-  REQUIRE(statistics.average==-46);
-
-  statistics = readSensor.BMS_getSensorStatistics(SENSOR_SOC);
-  REQUIRE(statistics.min==1);
-  REQUIRE(statistics.max==98);
-  REQUIRE(statistics.average==30);
-}
-
 TEST_CASE("TestTemperatureSensorValues_rangeIncreased")
 {
   myfile.open ("testFile.txt");

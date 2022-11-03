@@ -32,6 +32,7 @@ void BMS_ReadData::BMS_ReadSensorData(void)
                 SensorValues[SENSOR_TEMPERATURE].push_back(temperature);
                 SensorValues[SENSOR_SOC].push_back(temperature);
             }
+            calculateSensorStatistics();
         }
     }
 }

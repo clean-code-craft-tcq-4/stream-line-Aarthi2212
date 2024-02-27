@@ -75,3 +75,29 @@ This section lists the minimum functionality of the Sender and Receiver.
 ## Quality Parameters
 
 Setup the quality parameters of your project (duplication, complexity, coverage, warnings) using GitHub workflow yml files.
+
+
+## Considerations
+
+By Default 50 Readings will be sent, if the total number of readings is not configured or given negative or not a whole number or zero
+
+Temperature and SOC are taken. The range for temperature sensor considered is -100 to 100. The range for SOC considered is 0 to 100.
+
+## Output
+
+The Readings are printed in CSV format.
+
+Output:
+
+TEMPERATURE , SOC        
+        -78 , 88
+        -82 , 38
+         95 , 26
+        -22 , 0
+        -56 , 53
+         54 , 4
+        100 , 40
+
+sender-executable can be accessed by python BatteryManagementSystem/BMSSender.py 
+
+python BatteryManagementSystem/BMSSender.py | receiver-executsble
